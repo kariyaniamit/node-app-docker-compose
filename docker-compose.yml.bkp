@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  web:
+    image: node-app-image
+    container_name: nodejs-app
+    ports:
+      - 5000:5000
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_DB_NAME=library
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=library
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=rootpassword
+    volumes: 
+      - /app:/data/db
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - 6379:6379
+
