@@ -2,7 +2,7 @@ version: '3'
 
 services:
   web:
-    image: node-app-image
+    image: 917411321124.dkr.ecr.ap-south-1.amazonaws.com/node-app-repo:latest
     container_name: nodejs-app
     ports:
       - 5000:5000
