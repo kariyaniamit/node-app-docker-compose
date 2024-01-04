@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     sh 'scp ${WORKSPACE}/deploy.sh ${REMOTE_USER}@${REMOTE_HOST}:~/'
-                    sh 'scp ${WORKSPACE}/docker-compose.yml ${REMOTE_USER}@${REMOTE_HOST}:~/'
+                    sh 'scp ${WORKSPACE}/docker-compose.yml ${REMOTE_USER}@${REMOTE_HOST}:~/node-app/'
                     sh 'ssh ${REMOTE_USER}@${REMOTE_HOST} "chmod +x deploy.sh"'
                     sh 'ssh ${REMOTE_USER}@${REMOTE_HOST} ./deploy.sh'
                 }
